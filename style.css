@@ -6,13 +6,38 @@ body {
     margin-top: 20px;
 }
 
+.posttext {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.38;
+    color: #1d2129;
+    margin: 10px 20px 15px;
+
+}
+
+.postowner {
+  margin: 20px 0px 0px 20px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #365899;
+  cursor: pointer;
+  text-decoration: none;
+}
+.postownericon {
+  margin-left : 20px;
+  width : 50px;
+
+}
+
 .time {
-    display: inline-block;
-    ;
+    color: #90949c;
+    margin-left: 20px;
     font-size: 12px;
+    font-weight: normal;
+    display: inline-block;
     text-align: right;
     font-weight: lighter;
-    float: right;
+
 }
 
 .deletePostIcon {
