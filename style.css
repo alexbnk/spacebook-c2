@@ -1,25 +1,24 @@
 body {
-background-color: #e9ebee;
-
+    background-color: #e9ebee;
 }
 
 .posts {
-  margin-top:20px;
+    margin-top: 20px;
 }
 
-
- .time {
-   display: inline-block;;
-  font-size: 12px;
-  text-align: right;
-  font-weight: lighter;
-  float : right;
+.time {
+    display: inline-block;
+    ;
+    font-size: 12px;
+    text-align: right;
+    font-weight: lighter;
+    float: right;
 }
 
 .deletePostIcon {
-  position: relative;
-top: 0;
-right: 0;
+    position: relative;
+    top: 0;
+    right: 0;
 }
 
 .deletePostIcon:hover {
