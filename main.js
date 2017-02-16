@@ -52,15 +52,15 @@ var removePost = function(deleteThis) {
 
 
 // post element HTML creation
-var postelm=function(id, text)
+var postelm=function(id, text,time)
   {
-  var p1 = "<div class=\"thumbnail post\" data-id=\""+id+"\"><img src=\"https://unsplash.it/g/640/200\" >";
+  var p1 = "<div class=\"thumbnail post\" data-id=\""+id+"\"><h3>"+text+"</h3><span class=\"time\">"+time+"</span><img src=\"https://unsplash.it/g/640/200\" >";
   var p2 = " <div class=\"caption\"><span class=\"glyphicon glyphicon-remove-circle deletePostIcon\"></span>";
-  var p3 = "<span class=\"time\">"+postTime()+"</span>";
-  var p4 = "<h3>"+text+"</h3>";
+  var p3 = "<span class=\"time\">"+time+"</span>";
+  var p4 = "";
   var p5 = "<p><button data-id=\""+id+"\" type=\"button\" class=\"btn btn-danger removepost\">Delete</button></p>";
   var p6 = "</div></div>";
-  var posthtml = p1+p2+p3+p4+p6;
+  var posthtml = p1+p2+p6;
 
   return posthtml;
 }
@@ -70,7 +70,7 @@ var postelm=function(id, text)
 var newPost = function (post)
   {
   postID = randomID(8);
-  posts.push({text:post,id:postID});
+  posts.push({text:post,id:postID,time:Date()});
 
 };
 
@@ -98,7 +98,7 @@ $(".posts").find('.post').remove();
 
 //loop the posts array and prepend the obects
 for (var i=0; i< posts.length; i++) {
-$(".posts").prepend(postelm(posts[i].id, posts[i].text));
+$(".posts").prepend(postelm(posts[i].id, posts[i].text), posts[i].time);
 
 //$('.posts').on('click','.post', function(){});
  }
