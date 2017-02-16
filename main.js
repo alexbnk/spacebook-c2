@@ -82,7 +82,7 @@ $('.add-post').on('click',function() {
       newPost($('#post-name').val())
       clearInput(); // empties the input of the last post text
       drawPosts();
-      console.log("post");
+      console.log("Posted");
     }
 });
 
@@ -103,9 +103,11 @@ $(".posts").prepend(postelm(posts[i].id, posts[i].text));
 //$('.posts').on('click','.post', function(){});
  }
  }
-$('.posts').on('click','.post', function(){
-  $(this).remove();
-  removePost($(this).data('id'))});
+$('.posts').on('click','.deletePostIcon', function(){
+  var postToDelete = $(this).closest('.post')
+  console.log(postToDelete);
+  postToDelete.remove();
+  removePost(postToDelete.data('id'))});
 
 //$(this).parents().closest('div').find('.thumbnail').remove();
 // console.log("del button click");
