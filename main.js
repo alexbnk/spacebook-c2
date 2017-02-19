@@ -49,14 +49,14 @@ var removePost = function(deleteThis) {
 };
 
 // Post element HTML creation
-var postelm = function(id, text, time, user,picurl) {
-    var p1 = "<div class=\"thumbnail post\" data-id=\""+id+"\"><div class=\"postowner\">"+user+"</div><span class=\"time\">"+time+"</span><div class=\"posttext\">"+text+"</div><img src=\"https://unsplash.it/640/200\" >";
-    var p2 = " <div class=\"caption\"><span class=\"glyphicon glyphicon-remove-circle deletePostIcon\"></span>";
+var postelm = function(id, text, time, user,picture) {
+    var p1 = "<div class=\"thumbnail post\" data-id=\""+id+"\"><div class=\"caption\"><div class=\"postowner\">"+user+"<span class=\"glyphicon glyphicon-remove-circle deletePostIcon\"></span></div><span class=\"time\">"+time+"</span><div class=\"posttext\">"+text+"</div><img src=\"https://unsplash.it/640/200\" >";
+    var p2
     var p3 = "<span class=\"time\">" + time + "</span>";
     var p4 = "";
     var p5 = "<p><button data-id=\"" + id + "\" type=\"button\" class=\"btn btn-danger removepost\">Delete</button></p>";
     var p6 = "</div></div>";
-    var posthtml = p1 + p2 + p6;
+    var posthtml = p1 + p6;
 
     return posthtml;
 }
@@ -74,6 +74,7 @@ var newPost = function(post) {
 };
 
 // Post the post on post click :)
+
 $('.add-post').on('click', function() {
 
     if ($('#post-name').val().length > 0) {
@@ -83,6 +84,7 @@ $('.add-post').on('click', function() {
         console.log("Posted");
     }
 });
+
 // Show the posts on the page
 var drawPosts = function() {
     //remove previously posted posts;
@@ -101,10 +103,22 @@ $('.posts').on('click', '.deletePostIcon', function() {
     postToDelete.remove();
     removePost(postToDelete.data('id'))
 });
-//$(this).parents().closest('div').find('.thumbnail').remove();
-// console.log("del button click");
-//};
 
+// try posting when hitting enter key
+/*
+document.getElementById('post-name').onkeydown = function(e){
+   if(e.keyCode == 13){
+     if ($('#post-name').val().length > 0) {
+         newPost($('#post-name').val())
+         clearInput(); // empties the input of the last post text
+         drawPosts();
+         console.log("Posted");
+         document.getElementById('post-name').off;
+     }
+
+   }
+};
+*/
 
 //$('.caption').on('click','span', function(){
 //    console.log('delete post');
